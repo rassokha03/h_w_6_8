@@ -32,7 +32,8 @@ class TestProducts:
         assert magazine.check_quantity(1050) == False
 
         with pytest.raises(ValueError):
-            assert book.check_quantity(0) is ValueError
+            book.check_quantity(0)
+            #assert book.check_quantity(0) is ValueError
 
     def test_product_buy(self, book):
 
@@ -41,7 +42,8 @@ class TestProducts:
 
     def test_product_buy_more_than_available(self, book):
         with pytest.raises(ValueError):
-            assert book.buy(2000) is ValueError
+            book.buy(1001)
+            #assert book.buy(2000) is ValueError
 
 
 @pytest.fixture
@@ -107,4 +109,5 @@ class TestCart:
 
         cart.add_product(sudoku, 1050)
         with pytest.raises(ValueError):
-            assert cart.buy() is ValueError
+            cart.buy()
+            #assert cart.buy() is ValueError
